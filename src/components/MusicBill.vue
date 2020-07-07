@@ -3,20 +3,28 @@
         <h3>音乐榜单<span>更多</span></h3>
         <van-tabs v-model="active">
             <van-tab title="热歌榜">
-                <ul>
-
-                </ul>
+                <MusicList :type="2"></MusicList>
             </van-tab>
-            <van-tab title="新歌榜">内容 2</van-tab>
-            <van-tab title="King榜">内容 3</van-tab>
+            <van-tab title="新歌榜">
+                <MusicList :type="1"></MusicList>
+            </van-tab>
+            <van-tab title="King榜">
+                <MusicList :type="25"></MusicList>
+            </van-tab>
         </van-tabs>
     </div>
 </template>
 
 <script>
     // import MusicList from "./MusicList";
+    import MusicList from "./MusicList";
+    // import {getBillList} from "../api/music-api";
+
     export default {
         name: "MusicBill",
+        components: {
+            MusicList
+        },
         data() {
             return {
                 active: 0,
