@@ -22,7 +22,10 @@ Vue.use(Cell);
 
 Vue.config.productionTip = false
 
+import store from './store';
+
 new Vue({
     router,
+    store: store,
     render: h => h(App)
 }).$mount('#app')

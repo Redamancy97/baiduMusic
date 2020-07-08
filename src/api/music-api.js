@@ -12,3 +12,13 @@ export function getBillList(type, size = 6, offset = 0) {
         }
     })
 }
+
+export function getSingerList(tinguid) {
+    const url = `/v1/restserver/ting?method=baidu.ting.artist.getInfo&tinguid=${tinguid}`;
+    return request.get(url).then(res => {
+        return {
+            ...res,
+            // list:res
+        }
+    })
+}

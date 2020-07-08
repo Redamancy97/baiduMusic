@@ -6,7 +6,6 @@
         <Swiper/>
 
         <MusicBill class="bill-list"/>
-        <!--            <MusicList></MusicList>-->
         <BillList class="bill-list" type="24" title="热门歌单" :size="6"/>
     </div>
 </template>
