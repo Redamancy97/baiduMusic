@@ -1,12 +1,16 @@
 <template>
     <div class="singer-container">
-        <SingerList v-for="item in list" :key="item" :singerId="item"></SingerList>
+
+
+        <router-link v-for="item in list" :key="item" :tinguid="item" :to="'/index/singerItem/'+item">
+            <SingerList :singerId="item"></SingerList>
+        </router-link>
     </div>
 
 </template>
 
 <script>
-    import SingerList from "../components/SingerList";
+    import SingerList from "../../components/SingerList";
 
     export default {
         name: "Singer",

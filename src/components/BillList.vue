@@ -4,11 +4,12 @@
             <router-link tag="span" :to="{name:'more',params:{type:type}}">更多</router-link>
         </h3>
         <ul class="bill-list">
-            <li v-for="item in list" :key="item.song_id">
+            <router-link :to= "{name:'musicPlay',params:{songId:item.song_id}}"  v-for="item in list" :key="item.song_id"
+                         class="bill-list-content">
                 <img :src="item.pic_big"
                      alt="">
                 <div>{{item.title}}</div>
-            </li>
+            </router-link>
         </ul>
     </div>
 </template>
@@ -76,7 +77,7 @@
             /*padding-left: 0px;*/
 
 
-            li {
+            .bill-list-content {
                 width: calc(100% / 3);
                 box-sizing: border-box;
                 padding: 5px;

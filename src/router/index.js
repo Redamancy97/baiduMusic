@@ -2,11 +2,13 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import IndexLayout from "../layout/IndexLayout";
-import Singer from "../views/Singer";
+import Singer from "../views/Singer/Singer";
 import Bill from "../views/Bill/Bill";
 import My from "../views/My";
-import Search from "../views/Search";
+import Search from "../views/Search/Search";
 import Index from "../views/Index.vue";
+import SingerItem from "../views/Singer/components/SingerItem";
+import BillContent from "../views/Bill/components/BillContent";
 
 Vue.use(VueRouter)
 
@@ -59,8 +61,33 @@ const routes = [
                 meta: {
                     title: "更多音乐"
                 },
-            }]
+            },
+            {
+                name: 'singerItem',
+                path: "singerItem/:tinguid",
+                component: SingerItem,
+                meta: {
+                    title: "歌手详情"
+                }
+            },
+            {
+                name: 'billContent',
+                path: "billContent/:type",
+                component: BillContent,
+                meta: {
+                    title: "榜单详情"
+                }
+            }
+        ]
     },
+    {
+        name: "musicPlay",
+        path: "/music-play/:songId",
+        component: () => import('../views/MusicPlay/MusicPlay.vue'),
+        meta: {
+            title: "歌曲播放"
+        }
+    }
 ]
 
 const router = new VueRouter({

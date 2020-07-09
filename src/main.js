@@ -3,7 +3,7 @@ import App from './App.vue'
 import router from './router'
 import './styles/base.css'
 
-import {Swipe, SwipeItem, Tab, Tabs, List, PullRefresh, Cell} from 'vant';
+import {Swipe, SwipeItem, Tab, Tabs, List, PullRefresh, Cell, Icon,Toast } from 'vant';
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 
@@ -15,6 +15,8 @@ Vue.use(Tabs);
 Vue.use(List);
 Vue.use(PullRefresh);
 Vue.use(Cell);
+Vue.use(Icon);
+Vue.use(Toast);
 
 // import { Button } from 'vant'
 //

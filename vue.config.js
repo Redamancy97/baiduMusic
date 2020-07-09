@@ -3,13 +3,16 @@ module.exports = {
         // --open --contentBase src --port 3000 --hot",
         open: true,
         contentBase: 'src',
-        port: 3049,
+        port: 3050,
         hot: true,
         proxy: {
-            // "/^api":{
-            //     target:"http://tingapi.ting.baidu.com",
-            //     changeOrigin: true
-            // }
+            "/taihe-api": {
+                target: "http://music.taihe.com",
+                changeOrigin: true,
+                pathRewrite: {
+                    '^/taihe-api/': ''
+                }
+            },
             "/v1/restserver/ting": {
                 target: "http://tingapi.ting.baidu.com",
                 changeOrigin: true

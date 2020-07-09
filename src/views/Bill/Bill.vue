@@ -1,6 +1,9 @@
 <template>
     <div>
-        <BillItem v-for="item in list" :type="item" :key="item"></BillItem>
+
+        <router-link v-for="item in list" :key="item" :to="'/index/billContent/'+item">
+            <BillItem :type="item"></BillItem>
+        </router-link>
     </div>
 </template>
 
@@ -9,12 +12,12 @@
 
     export default {
         name: "Bill",
-        data(){
-          return {
-              list:[1,2,11,21,22,23,24,25]
-          }
+        data() {
+            return {
+                list: [1, 2, 11, 21, 22, 23, 24, 25]
+            }
         },
-        components:{
+        components: {
             BillItem
         }
     }

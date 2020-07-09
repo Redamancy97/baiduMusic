@@ -16,7 +16,10 @@ const store = new Vuex.Store({
         },
         isLogin: true,
         list: [2, 3, 4, 5, 98, 1, 21, 66],
-        billList: []
+        billList: [],
+        //    播放进度
+        currentTime: 0,
+        process: null
     },
     // 修改vuex中的数据只能mutation中修改
     // mutation是一个纯函数，不能有异步操作
@@ -36,6 +39,12 @@ const store = new Vuex.Store({
         },
         setBillList(state, payload) {
             state.billList = payload.billList;
+        },
+        setCurrentTime(state, payload) {
+            state.currentTime = payload.currentTime;
+        },
+        setProcess(state, payload){
+            state.process = payload.process;
         }
     },
     // 可以理解为vuex的计算属性,getters，可以对state进行一些派生

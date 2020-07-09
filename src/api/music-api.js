@@ -22,3 +22,24 @@ export function getSingerList(tinguid) {
         }
     })
 }
+
+export function getSongInfo(songId) {
+    const url = `/v1/restserver/ting?method=baidu.ting.song.play&songid=${songId}`;
+    return request.get(url)
+}
+
+export function getLrc(lrcLink) {
+    const url = `/taihe-api/data/song/lrc?lrc_link=${lrcLink}`;
+    return request.get(url)
+}
+
+export function getSingerInfo(tinguid) {
+    const url = `/v1/restserver/ting?method=baidu.ting.artist.getSongList&limits=10&tinguid=${tinguid}`;
+    return request.get(url)
+}
+
+// http://musicapi.taihe.com/v1/restserver/ting?method=baidu.ting.search.catalogSug&query=周
+export function getSearchQuery(query) {
+    const url = `/v1/restserver/ting?method=baidu.ting.search.catalogSug&query=${query}`
+    return request.get(url)
+}
