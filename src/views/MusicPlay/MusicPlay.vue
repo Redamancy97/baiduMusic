@@ -2,7 +2,8 @@
     <div class="music-play-container" :style="{height:height}">
         <Header :title="songinfo.title"></Header>
         <div class="music-play-cover">
-            <img :src="songinfo.pic_big" :class="isPlay?'play':''">
+            <img :src="songinfo.pic_big" class="play"
+                 :style="isPlay?'animation-play-state:running':'animation-play-state:paused'">
         </div>
         <Lrc v-if="songinfo.lrclink" :lrc-link="songinfo.lrclink"></Lrc>
         <MusicAction :file-link="bitrate.file_link"></MusicAction>
