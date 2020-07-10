@@ -2,7 +2,7 @@
     <div class="music-play-container" :style="{height:height}">
         <Header :title="songinfo.title"></Header>
         <div class="music-play-cover">
-            <img :src="songinfo.pic_big">
+            <img :src="songinfo.pic_big" :class="isPlay?'play':''">
         </div>
         <Lrc v-if="songinfo.lrclink" :lrc-link="songinfo.lrclink"></Lrc>
         <MusicAction :file-link="bitrate.file_link"></MusicAction>
@@ -26,7 +26,8 @@
             return {
                 height: 0,
                 bitrate: {},
-                songinfo: {}
+                songinfo: {},
+                isPlay: false
             }
         },
         created() {
@@ -42,6 +43,14 @@
             this.$refs.audio.addEventListener('timeupdate', () => {
                 console.log(this.$refs.audio.currentTime)
                 this.$store.commit("setCurrentTime", {currentTime: this.$refs.audio.currentTime});
+            });
+            this.$refs.audio.addEventListener('play', () => {
+                this.isPlay = true;
+                console.log(11111);
+            });
+            this.$refs.audio.addEventListener('pause', () => {
+                this.isPlay = false;
+                console.log(2222);
             })
         },
         computed: {
@@ -76,6 +85,19 @@
                 width: 100%;
                 height: 100%;
                 border-radius: 50%;
+            }
+
+            .play {
+                animation: rotate 3s infinite linear;
+            }
+
+            @keyframes rotate {
+                from {
+                    transform: rotate(0deg);
+                }
+                to {
+                    transform: rotate(360deg);
+                }
             }
         }
 
